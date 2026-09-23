@@ -1,223 +1,187 @@
-const profileLinks = {
-  email: "mailto:vivek.shukla12@gmail.com",
-  linkedin: "https://www.linkedin.com/in/vivek-s-12867028",
-  github: "https://github.com/vivekshukla12"
-};
+const linkedIn = "https://www.linkedin.com/in/vivek-s-12867028";
 
-const highlights = [
-  "Practice Lead — HR Digital Solutions",
-  "10+ years in Workday and HR technology",
-  "Workday HCM, Integrations, Reporting, Prism & Extend",
-  "Global HR digital transformation leadership"
+const projects = [
+  {
+    id: "wql-tools",
+    area: "Vibe Coding Projects",
+    title: "WQL Tools for Notepad++",
+    summary: "A local editor tool that makes Workday Query Language easier to read, format and work with. Built using AI-assisted development.",
+    tags: ["WQL", "Local tooling", "AI-assisted development"],
+    details: [
+      ["The problem", "In a Workday-to-middleware integration workflow, I repeatedly needed to create, update, format and fix WQL queries. Asking an AI assistant to format each query added time and token usage to a repetitive task."],
+      ["What I built", "A native Notepad++ plugin with formatting, minifying, syntax highlighting, keyboard shortcuts and conservative local syntax checks. It runs offline, without an AI connection."],
+      ["Practical value", "I use formatting and minifying in my own workflow to edit queries faster and make long queries easier to read. The local checks are partial: they do not replace validation against Workday or validate tenant-specific behavior."],
+      ["What this demonstrates", "Workday and WQL knowledge, practical AI-assisted development, and the ability to turn recurring workflow friction into a focused developer tool."]
+    ]
+  },
+  {
+    id: "workday-ai-skills",
+    area: "Reusable knowledge",
+    title: "Workday AI Skills",
+    summary: "Focused instructions and references that give AI assistants reusable guidance for Workday workflows, reporting, analytics and development.",
+    tags: ["Workday", "AI skills", "Knowledge design"],
+    details: [
+      ["The problem", "Specialized Workday tasks need domain context. Repeating that context in one-off prompts makes useful guidance harder to reuse consistently."],
+      ["The approach", "A collection of focused AI skills: WQL Formatter for query formatting and plausible syntax issues; Workforce Crisis Planner for workforce and financial scenarios; and Workday Prism Assistant for analytics architecture, ingestion, transformations, security and troubleshooting."],
+      ["Practical value", "Reusable instructions and supporting references help an assistant approach specialized tasks with more consistent context, from query editing to analytics planning."],
+      ["What this demonstrates", "Workday domain depth, structured knowledge design for AI agents, and an understanding of how reporting, analytics and HR technology workflows connect."]
+    ]
+  },
+  {
+    id: "ai-workday",
+    area: "Enterprise AI architecture",
+    title: "Connecting AI Assistants to Workday",
+    summary: "A read-only bridge designed for AI-assisted reporting, metadata discovery and WQL/API planning, with user-scoped access at its core.",
+    tags: ["Read-only access", "APIs", "Solution architecture"],
+    details: [
+      ["The problem", "Connecting an AI assistant to enterprise HR systems calls for clear access boundaries and careful planning of data requests."],
+      ["The approach", "A solution design for read-only Workday access through each user's authorization. It emphasizes sandbox-first planning and validation for reporting support, metadata discovery, WQL/API planning and controlled data extraction."],
+      ["Practical value", "The design aims to help assistants work within user access boundaries and reduce unnecessary production calls by planning and validating requests in a sandbox first."],
+      ["What this demonstrates", "HR technology architecture, Workday integration and API thinking, and attention to security and access control when connecting AI to enterprise systems."]
+    ]
+  }
 ];
 
-const focusAreas = [
-  "Workday HCM",
-  "Integrations",
-  "Reporting & Analytics",
-  "Workday Extend",
-  "HR Digital Strategy",
-  "Practice Building",
-  "Delivery Leadership",
-  "Solution Architecture"
+const capabilities = [
+  ["Global delivery & localization", "Country rollouts across Workday HCM, Recruiting, Absence and Time Management, connecting global direction with local requirements."],
+  ["Integrations that connect HR", "Payroll, benefits and third-party IT integrations, with hands-on understanding of the solutions behind HR operations."],
+  ["Reporting & decision support", "Executive reports and dashboards, annual social reporting, and compensation benchmarking and reporting for European contexts."],
+  ["HRIT operating models", "Shaping support-team frameworks and operating models alongside HR technology strategy, delivery and solution design."]
 ];
 
 const experience = [
-  {
-    role: "Practice Lead — HR Digital Solutions",
-    company: "Randstad Digital Germany",
-    period: "Oct 2025 — Present",
-    summary:
-      "Building scalable Workday capability across consulting, solution design, delivery governance and HR technology advisory."
-  },
-  {
-    role: "Head of HR Digital Transformation",
-    company: "ZEISS Group",
-    period: "May 2024 — May 2025",
-    summary:
-      "Led HRIT transformation, global HR systems initiatives, governance, analytics and Workday delivery across key HR domains."
-  },
-  {
-    role: "Teamhead Global People Technology / Senior Manager",
-    company: "PUMA Group",
-    period: "2019 — 2024",
-    summary:
-      "Drove People Technology strategy, Workday integrations, reporting, Prism analytics, Extend initiatives and team leadership."
-  },
-  {
-    role: "Workday Consultant",
-    company: "PwC, KPMG, Appirio",
-    period: "2013 — 2019",
-    summary:
-      "Built hands-on implementation experience across Workday integrations, reporting, technical design and customer delivery."
-  }
+  ["Practice Lead — HR Digital Solutions", "Randstad Digital Germany", "Oct 2025 — Present"],
+  ["Head of HR Digital Transformation", "ZEISS Group", "May 2024 — May 2025"],
+  ["Teamhead Global People Technology / Senior Manager", "PUMA Group", "2019 — 2024"],
+  ["Workday Consultant", "PwC, KPMG, Appirio", "2013 — 2019"]
 ];
 
-const insights = [
-  {
-    title: "Scalable Workday practices",
-    text: "Capability building, delivery discipline and certification strategy are the foundation of a stronger consulting engine."
-  },
-  {
-    title: "HR technology as business value",
-    text: "The best programs connect platform decisions to operating model change, measurable outcomes and adoption."
-  },
-  {
-    title: "Connected enterprise architecture",
-    text: "Integrations, analytics and extensibility turn HR platforms from systems of record into systems of action."
-  }
-];
-
-function ExternalLink({ href, children, variant = "secondary" }) {
+function LinkedInLink() {
   return (
-    <a className={`button ${variant}`} href={href} target={href.startsWith("mailto:") ? undefined : "_blank"} rel={href.startsWith("mailto:") ? undefined : "noreferrer"}>
-      {children}
-      <span aria-hidden="true">↗</span>
+    <a className="button primary" href={linkedIn} target="_blank" rel="noopener noreferrer">
+      Connect on LinkedIn <span aria-hidden="true">↗</span>
+      <span className="sr-only"> (opens in a new tab)</span>
     </a>
+  );
+}
+
+function ProjectCard({ project, index }) {
+  return (
+    <article className="project-card" id={project.id}>
+      <div className="project-topline">
+        <p className="eyebrow">{project.area}</p>
+        <span className="project-number" aria-hidden="true">0{index + 1}</span>
+      </div>
+      <h3>{project.title}</h3>
+      <p className="project-summary">{project.summary}</p>
+      <ul className="tags" aria-label="Project themes">
+        {project.tags.map(tag => <li key={tag}>{tag}</li>)}
+      </ul>
+      <details className="project-details">
+        <summary>Explore the project<span className="sr-only">: {project.title}</span></summary>
+        <dl>
+          {project.details.map(([heading, text]) => (
+            <div key={heading}>
+              <dt>{heading}</dt>
+              <dd>{text}</dd>
+            </div>
+          ))}
+        </dl>
+      </details>
+    </article>
   );
 }
 
 export default function App() {
   return (
-    <main>
-      <header className="site-header">
+    <>
+      <a className="skip-link" href="#main-content">Skip to content</a>
+      <header className="site-header" id="top">
         <a className="brand" href="#top" aria-label="Vivek Shukla home">
-          <span className="brand-mark">VS</span>
-          <span>
-            <strong>Vivek Shukla</strong>
-            <small>Workday & HR Technology</small>
-          </span>
+          <span className="brand-mark" aria-hidden="true">VS</span>
+          <span><strong>Vivek Shukla</strong><small>Workday & HR Technology</small></span>
         </a>
-
         <nav className="nav-links" aria-label="Primary navigation">
-          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
           <a href="#experience">Experience</a>
-          <a href="#insights">Insights</a>
-          <a href="#contact">Contact</a>
+          <a href="#insights">Ideas</a>
+          <a href="#contact">Connect <span aria-hidden="true">↗</span></a>
         </nav>
       </header>
 
-      <section id="top" className="hero section-shell">
-        <div className="hero-copy">
-          <p className="eyebrow">Germany-based Workday & HR Technology Leader</p>
-          <h1>Building practical, scalable HR technology outcomes.</h1>
-          <p className="hero-subtitle">
-            I help organizations transform HR through Workday solution design, modern people technology strategy,
-            enterprise integrations, analytics and delivery leadership.
-          </p>
-
-          <div className="actions" aria-label="Profile links">
-            <ExternalLink href={profileLinks.email} variant="primary">Contact me</ExternalLink>
-            <ExternalLink href={profileLinks.linkedin}>LinkedIn</ExternalLink>
-            <ExternalLink href={profileLinks.github}>GitHub</ExternalLink>
-          </div>
-        </div>
-
-        <aside className="profile-card" aria-label="Professional highlights">
-          <p className="card-kicker">Core profile</p>
-          <h2>Vivek Shukla</h2>
-          <p>Practice Lead — HR Digital Solutions</p>
-          <ul>
-            {highlights.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </aside>
-      </section>
-
-      <section className="stats section-shell" aria-label="Professional focus summary">
-        <article>
-          <strong>Workday</strong>
-          <span>HCM, Reporting, Prism, Integrations, Extend</span>
-        </article>
-        <article>
-          <strong>Leadership</strong>
-          <span>Practice building, delivery governance, stakeholder management</span>
-        </article>
-        <article>
-          <strong>Approach</strong>
-          <span>Simple architecture, measurable outcomes, sustainable delivery</span>
-        </article>
-      </section>
-
-      <section id="about" className="section-shell two-column">
-        <div>
-          <p className="eyebrow">About</p>
-          <h2>Driving digital HR transformation with Workday.</h2>
-          <p>
-            I am an HR technology and Workday leader with a strong background in enterprise delivery,
-            solution design and practice building. Across consulting and in-house leadership roles, I have led
-            initiatives covering Workday HCM, integrations, reporting, analytics, governance and extensibility.
-          </p>
-          <p>
-            My focus is connecting business needs with practical technology outcomes, simplifying complexity
-            and helping organizations maximize value from their HR technology ecosystem.
-          </p>
-        </div>
-
-        <div className="panel">
-          <p className="eyebrow">Focus areas</p>
-          <div className="tags">
-            {focusAreas.map((skill) => (
-              <span key={skill}>{skill}</span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="experience" className="section-shell">
-        <div className="section-heading">
-          <p className="eyebrow">Experience</p>
-          <h2>Career snapshot</h2>
-        </div>
-
-        <div className="timeline">
-          {experience.map((item) => (
-            <article className="timeline-item" key={`${item.company}-${item.period}`}>
-              <div>
-                <h3>{item.role}</h3>
-                <p>{item.company}</p>
+      <main id="main-content" tabIndex={-1}>
+        <section className="hero section-shell" aria-labelledby="hero-title">
+          <p className="eyebrow">Strategy. Architecture. Hands-on building.</p>
+          <h1 id="hero-title">I lead HR technology strategy <span>and build the solutions behind it.</span></h1>
+          <div className="hero-bottom">
+            <div>
+              <p className="hero-subtitle">I connect HR technology leadership with practical Workday solutions — from integrations and analytics to AI-assisted tools and global delivery.</p>
+              <div className="actions">
+                <LinkedInLink />
+                <a className="button secondary" href="#projects">Explore my work <span aria-hidden="true">↓</span></a>
               </div>
-              <time>{item.period}</time>
-              <p>{item.summary}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="insights" className="section-shell">
-        <div className="section-heading split">
-          <div>
-            <p className="eyebrow">Insights</p>
-            <h2>Ideas I care about</h2>
+            </div>
+            <p className="hero-note">A practical perspective.<br />From the strategy<br />to the solution.</p>
           </div>
-          <span className="section-note">Thought leadership themes</span>
-        </div>
+        </section>
 
-        <div className="insight-grid">
-          {insights.map((item) => (
-            <article className="insight-card" key={item.title}>
-              <span aria-hidden="true">↗</span>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+        <section id="projects" className="section-shell section-block" aria-labelledby="projects-title">
+          <div className="section-heading split">
+            <div><p className="eyebrow">01 / Selected work</p><h2 id="projects-title">Ideas put into practice.</h2></div>
+            <p className="section-intro">Tools, reusable knowledge and solution design, grounded in real HR technology work.</p>
+          </div>
+          <div className="project-grid">
+            {projects.map((project, index) => <ProjectCard key={project.id} project={project} index={index} />)}
+          </div>
+        </section>
 
-      <section id="contact" className="section-shell contact-panel">
-        <p className="eyebrow">Connect</p>
-        <h2>Open to collaboration and professional networking.</h2>
-        <p>
-          Whether the conversation is about Workday transformation, HR technology strategy, global delivery or
-          practice building, I am interested in meaningful professional connections.
-        </p>
-        <div className="actions center">
-          <ExternalLink href={profileLinks.email} variant="primary">Email</ExternalLink>
-          <ExternalLink href={profileLinks.linkedin}>LinkedIn profile</ExternalLink>
-          <ExternalLink href={profileLinks.github}>GitHub profile</ExternalLink>
-        </div>
-      </section>
-    </main>
+        <section id="experience" className="section-shell section-block" aria-labelledby="experience-title">
+          <div className="section-heading split">
+            <div><p className="eyebrow">02 / Experience behind the work</p><h2 id="experience-title">The bigger picture.<br />The technical detail.</h2></div>
+            <p className="section-intro">My experience spans HR technology leadership and hands-on solution building. Each informs the other.</p>
+          </div>
+          <div className="capability-grid">
+            {capabilities.map(([title, text]) => (
+              <article className="capability" key={title}><h3>{title}</h3><p>{text}</p></article>
+            ))}
+          </div>
+          <details className="career-details">
+            <summary>Career background <span className="summary-note">Roles & organizations</span></summary>
+            <div className="timeline">
+              {experience.map(([role, company, period]) => (
+                <article className="timeline-item" key={company}>
+                  <div><h3>{role}</h3><p>{company}</p></div><p className="period">{period}</p>
+                </article>
+              ))}
+            </div>
+          </details>
+        </section>
+
+        <section id="insights" className="section-shell section-block" aria-labelledby="insights-title">
+          <div className="section-heading"><p className="eyebrow">03 / Ideas & field notes</p><h2 id="insights-title">Small friction. Useful lessons.</h2></div>
+          <article className="insight-card">
+            <div>
+              <p className="eyebrow">Behind WQL Tools for Notepad++</p>
+              <h3>Use AI to build the tool.<br />Let the tool do the repetition.</h3>
+              <a className="text-link" href="#wql-tools">Explore WQL Tools <span aria-hidden="true">↑</span></a>
+            </div>
+            <div className="insight-copy">
+              <p>In a Workday-to-middleware integration workflow, I was repeatedly creating, updating, formatting and fixing Workday Query Language (WQL) queries. Readable queries made that work easier.</p>
+              <p>Using an AI assistant for every simple formatting request was slower and consumed tokens for a repetitive, deterministic task. So I used AI-assisted development to build a local Notepad++ tool for formatting, minifying, syntax highlighting and conservative local syntax checks.</p>
+              <p>I use the formatting and minifying features to edit faster and make long queries easier to read. The local checks are partial and do not replace Workday validation; I have not comprehensively tested them in daily use.</p>
+              <p className="insight-takeaway">The lesson: use AI where it helps you build, and a focused local tool where the task simply repeats.</p>
+            </div>
+          </article>
+        </section>
+
+        <section id="contact" className="section-shell contact-panel" aria-labelledby="contact-title">
+          <p className="eyebrow">04 / Let's connect</p>
+          <h2 id="contact-title">Good conversations<br />lead to useful work.</h2>
+          <p>Have an HR technology challenge, a Workday idea, or a shared interest in practical AI? Let's compare notes.</p>
+          <div className="actions"><LinkedInLink /></div>
+        </section>
+      </main>
+      <footer className="site-footer section-shell"><p>Vivek Shukla <span>HR technology strategy & hands-on solutions</span></p><a href="#top">Back to top ↑</a></footer>
+    </>
   );
 }
